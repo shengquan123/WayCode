@@ -1,0 +1,62 @@
+apply plugin: 'info.solidsoft.pitest'
+
+description = 'WebAuthn core API'
+
+apply plugin: 'scala'
+
+project.ext.publishMe = true
+
+dependencies {
+
+  compile(
+    project(':yubico-util'),
+    'com.augustcellars.cose:cose-java:0.9.4',
+    'com.fasterxml.jackson.core:jackson-databind:2.9.9',
+    'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.9.9',
+    'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.9',
+    'com.google.guava:guava:19.0',
+    'org.apache.httpcomponents:httpclient:4.5.2',
+    'org.bouncycastle:bcpkix-jdk15on:1.54',
+  )
+
+  testCompile(
+    project(':yubico-util-scala'),
+    'commons-io:commons-io:2.5',
+    'org.mockito:mockito-core:2.27.0',
+    'org.scala-lang:scala-library:2.12.8',
+    'org.scalacheck:scalacheck_2.12:1.14.0',
+    'org.scalatest:scalatest_2.12:3.0.4',
+  )
+
+}
+
+
+jar {
+  manifest {
+    attributes([
+      'Specification-Title': 'Web Authentication: An API for accessing Public Key Credentials',
+      'Specification-Version': 'Level 1 Proposed Recommendation 2019-01-17',
+      'Specification-Vendor': 'World Wide Web Consortium',
+      'Implementation-Id': 'java-webauthn-server',
+      'Implementation-Title': 'Yubico Web Authentication server library',
+      'Implementation-Version': project.version,
+      'Implementation-Vendor': 'Yubico',
+    ])
+  }
+}
+
+pitest {
+  pitestVersion = '1.4.2'
+
+  timestampedReports = false
+  outputFormats = ['XML', 'HTML']
+
+  avoidCallsTo = [
+    'java.util.logging',
+    'org.apache.log4j',
+    'org.slf4j',
+    'org.apache.commons.logging',
+    'com.google.common.io.Closeables',
+  ]
+}
+

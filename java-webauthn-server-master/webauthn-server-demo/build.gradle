@@ -1,0 +1,95 @@
+plugins {
+  id 'com.bmuschko.docker-remote-api' version '3.6.1'
+}
+
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+project.ext.dockerGroup = 'yubico'
+project.ext.dockerName = project.name
+
+description = 'WebAuthn demo'
+
+apply plugin: 'scala'
+apply plugin: 'war'
+apply plugin: 'application'
+apply from: 'gretty-2.2.0.plugin'
+
+configurations {
+  forJdk10
+}
+
+dependencies {
+
+ //添加阿里fastjson支持
+  compile group: 'com.alibaba', name: 'fastjson', version: '1.2.44'
+
+  compile(
+    project(':webauthn-server-attestation'),
+    project(':webauthn-server-core'),
+
+    'com.fasterxml.jackson.core:jackson-core:2.9.9',
+    'com.fasterxml.jackson.core:jackson-databind:2.9.9',
+    'com.google.guava:guava:24.1-jre',
+    'javax.ws.rs:javax.ws.rs-api:2.1',
+    'org.eclipse.jetty:jetty-server:9.4.9.v20180320',
+    'org.glassfish.jersey.containers:jersey-container-jetty-http:2.26',
+  )
+
+  forJdk10(
+    'javax.activation:activation:1.1.1',
+    'javax.xml.bind:jaxb-api:2.3.0',
+  )
+
+  runtime(
+    configurations.forJdk10,
+    'ch.qos.logback:logback-classic:1.2.3',
+    'org.glassfish.jersey.containers:jersey-container-servlet:2.26',
+    'org.glassfish.jersey.inject:jersey-hk2:2.26',
+  )
+
+  testCompile(
+    project(':webauthn-server-core').sourceSets.test.output,
+    project(':yubico-util-scala'),
+
+    'commons-io:commons-io:2.5',
+    'org.mockito:mockito-core:2.27.0',
+    'org.scala-lang:scala-library:2.12.8',
+    'org.scalacheck:scalacheck_2.12:1.14.0',
+    'org.scalatest:scalatest_2.12:3.0.4',
+  )
+
+  modules {
+    module('javax.servlet:servlet-api') {
+      replacedBy('javax.servlet:javax.servlet-api')
+    }
+  }
+}
+
+mainClassName = 'demo.webauthn.EmbeddedServer'
+
+gretty {
+  contextPath = '/webauthn'
+  httpEnabled = false
+  httpsEnabled = true
+  servletContainer = 'jetty7' // Orders of magnitude faster than jetty9
+  sslKeyStorePassword = 'p@ssw0rd'
+  sslKeyStorePath = file('keystore.jks')
+}
+
+task dockerPrepare(type: Sync) {
+  from file('docker')
+  from file('keystore.jks')
+  from(war.outputs) {
+    rename ~/${war.baseName}.*\.${war.extension}/, "${war.baseName}.${war.extension}"
+  }
+  into file("${project.buildDir}/docker")
+}
+
+task dockerBuild(type: DockerBuildImage) {
+  inputs.files dockerPrepare.outputs.files
+  inputDir = dockerPrepare.destinationDir
+  tags = [
+    "${project.dockerGroup}/${project.dockerName}:${project.version}",
+    "${project.dockerGroup}/${project.dockerName}:latest",
+  ]
+}
