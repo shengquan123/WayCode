@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.rest.common.persistence.dao.WayAccessoryRelUserChipQuickLaunchMapper">
+
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryRelUserChipQuickLaunch">
+		<id column="id" property="id" />
+		<result column="fingerprint_info_id" property="fingerprintInfoId" />
+		<result column="type" property="type" />
+		<result column="app_path" property="appPath" />
+		<result column="icon_defult" property="iconDefult" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+	
+	<select
+		id="selectWayAccessoryRelUserChipQuickLaunchMapperByFingerprintInfoId"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryRelUserChipQuickLaunch">
+		SELECT * FROM way_accessory_rel_user_chip_quick_launch
+		WHERE fingerprint_info_id = #{fingerprintInfoId}
+	</select>
+
+	<select id="selectWayAccessorByChipIdAnduserId"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryRelUserChipQuickLaunch">
+		select l.* from way_accessory_rel_user_chip_quick_launch l left join
+		way_accessory_rel_user_chip_fingerprint f on
+		l.fingerprint_info_id=f.id where f.user_id=#{userId} and
+		f.chip_id=#{chipId}
+	</select>
+
+</mapper>

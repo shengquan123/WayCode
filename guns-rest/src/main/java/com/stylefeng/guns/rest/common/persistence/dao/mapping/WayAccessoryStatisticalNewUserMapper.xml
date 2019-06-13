@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.rest.common.persistence.dao.WayAccessoryStatisticalNewUserMapper">
+
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryStatisticalNewUser">
+		<id column="id" property="id" />
+		<result column="check_date" property="checkDate" />
+		<result column="check_type" property="checkType" />
+		<result column="count" property="count" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<select id="selectDayCount"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryStatisticalNewUser">
+		SELECT * FROM way_accessory_statistical_new_user WHERE
+		check_date=#{dayTime} and check_type=1;
+	</select>
+
+	<select id="selectWeekCount"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryStatisticalNewUser">
+		SELECT * FROM way_accessory_statistical_new_user WHERE
+		check_date =#{weekTime} and check_type=2;
+	</select>
+
+	<select id="selectMonthCount"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryStatisticalNewUser">
+		SELECT * FROM way_accessory_statistical_new_user WHERE
+		check_date =#{monthTime} and check_type=3;
+	</select>
+
+	<select id="selectHAllDayCount" resultType="Map">
+		SELECT count_Number
+		count,check_date FROM way_accessory_statistical_new_user WHERE
+		check_type=1 order by create_time asc;
+	</select>
+
+	<select id="selectHDayCount" resultType="Map">
+		SELECT count_number
+		count,check_date FROM way_accessory_statistical_new_user WHERE
+		create_time between #{startTime} and #{endTime} and check_type=1 order
+		by create_time asc;
+	</select>
+
+	<select id="selectHWeekCount" resultType="Map">
+		SELECT count_number
+		count,check_date FROM way_accessory_statistical_new_user WHERE
+		create_time between #{startTime} and #{endTime} and check_type=2 order
+		by create_time asc;
+	</select>
+
+	<select id="selectHMonthCount" resultType="Map">
+		SELECT count_number
+		count,check_date FROM way_accessory_statistical_new_user WHERE
+		create_time between #{startTime} and #{endTime} and check_type=3 order
+		by create_time asc;
+	</select>
+
+</mapper>

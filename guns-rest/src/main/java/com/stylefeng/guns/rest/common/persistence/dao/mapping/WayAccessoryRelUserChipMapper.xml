@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.rest.common.persistence.dao.WayAccessoryRelUserChipMapper">
+
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryRelUserChip">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="chip_id" property="chipId" />
+		<result column="status" property="status" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+	
+	<select id="selectByChipIdAndUserId"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryRelUserChip">
+		SELECT * FROM way_accessory_rel_user_chip WHERE user_id =
+		#{userId} and chip_id = #{chipId} and status=1
+	</select>
+
+	<select id="selectByUserId" resultType="Map">
+		SELECT
+		m.id,m.chip_number,m.chip_brand FROM way_accessory_rel_user_chip c
+		left join way_accessory_model_chip m on c.chip_id=m.id WHERE
+		c.status=1 and c.user_id=#{userId} order by m.create_time desc
+	</select>
+</mapper>

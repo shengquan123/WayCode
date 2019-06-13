@@ -1,0 +1,86 @@
+rest:
+  auth-open: true #jwt鉴权机制是否开启(true或者false)
+  sign-open: true #签名机制是否开启(true或false)
+
+jwt:
+  header: Authorization   #http请求头所需要的字段
+  secret: WAYJwtTokenSecret        #jwt秘钥
+  expiration: 7776000      #90天 单位:秒
+  auth-path: auth         #认证请求的路径
+  md5-key: randomKey      #md5加密混淆key
+  sms-overdue-time: 600000 #短信过期时间10分钟
+
+send-sms:
+  MAIL_TEXT: <div>【互啊佑】您的验证码是:</div><div>【WhoAreYou】Your verification code is:</div><h2>xxxxxx</h2><div>备注:10分钟内有效，如非本人操作，请忽略。</div>Note:Valid for 10 minutes. If not operated by yourself, please ignore.
+  PHONE_MESSAGE_TEXT: 【互啊佑】您的验证码是xxxxxx。（10分钟内有效，如非本人操作，请忽略）
+  YP_PROMOTION_APIKEY: aa0a371b6ed886d27eaba703944234d9
+
+server:
+  port: 8080 #项目端口
+
+mybatis-plus:
+  mapper-locations: classpath*:com/stylefeng/guns/rest/**/mapping/*.xml
+  typeAliasesPackage: com.stylefeng.guns.rest.common.persistence.model
+  global-config:
+    id-type: 0  #0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
+    db-column-underline: false
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
+
+spring:
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      
+      #dev
+      #url: jdbc:mysql://39.104.18.117:3306/guns_db_way?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      #password: WAY@abc123
+
+      #produce
+      url: jdbc:mysql://rm-bp1wcewx09y9laon3ho.mysql.rds.aliyuncs.com:3306/guns_db_way?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      password: DB@whoareyou&224610
+      
+      filters: log4j,wall,mergeStat
+      #在配置文件application.xml中配置如些druid的参数之后，就不再需要druid连接池配置类了，druid语法糖
+      druid:
+         initial-size: 2                       # 初始化连接数
+         min-idle: 1                           # 初始化最小连接数
+         maxActive: 20                         # 初始化最大连接数
+         maxWait: 60000                        # 配置获取连接等待超时的时间
+         timeBetweenEvictionRunsMillis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+         minEvictableIdleTimeMillis: 300000    # 配置一个连接在池中最小生存的时间，单位是毫秒
+         validationQuery: SELECT 1 FROM DUAL
+         testWhileIdle: true
+         testOnBorrow: false
+         testOnReturn: false
+         poolPreparedStatements: true          # 打开PSCache
+         maxPoolPreparedStatementPerConnectionSize: 20  #指定每个连接上PSCache的大小
+         filters: stat                         # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+         removeAbandoned: true                 # 是否开启自动清理被租借的连接但是又没有还回线程池
+
+  mail:
+    protocol: smtp #smtp是邮件发送协议，pop3和imap是邮件接收协议。因为我们要发送邮件，因此是smtp
+    host: smtp.exmail.qq.com #smtp.qq.com #邮件发送服务器的主机
+    default-encoding: UTF-8
+    properties.mail.smtp.ssl.enable: true
+    properties.mail.imap.ssl.socketFactory.fallback: false
+    port:  465 #587 #邮件发送服务器的端口
+    auth: true #一般情况下，发送邮件都是要进行验证
+    username: no-reply@whoareyou.live #邮件发送服务器的用户名
+    password: WAY@8888.way   #密码
+    smtp.starttls.enable: true
+    smtp.starttls.required: true
+#############如果不添加logback-spring.xml配置，那么这里的配置不起作用###################
+logging:
+  level.root: info
+  level.com.stylefeng: DEBUG
+  path: logs/                         #本地环境日志位置
+  #path: ../webapps/guns-rest/logs/   #测试环境日志位置
+  file: guns-rest.log
+  

@@ -1,0 +1,30 @@
+guns-rest部署提示：
+
+1.修改Spring总配置生产环境还是测试环境
+文件目录：src/main/resources/application.yml
+修改属性：spring.datasource.url 和 spring.datasource.password 选择测试环境还是生产环境注释即可
+
+################Deploy Script################
+
+#进入到Tomcat目录，停止Tomcat
+cd /opt/tomcat8/webapps
+service tomcat8 stop
+
+#移除旧项目
+rm -rf guns-rest
+ls
+
+#解压新项目
+unzip guns-rest.zip
+ls
+
+#删除新项目zip
+rm -rf guns-rest.zip
+ls
+
+#开启Tomcat查看日志
+cd /opt/tomcat8/logs
+tail -f catalina.out
+service tomcat8 start
+
+################Deploy Script################

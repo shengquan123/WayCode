@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.rest.common.persistence.dao.WayAccessoryLogQuickLaunchMapper">
+
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryLogQuickLaunch">
+		<id column="id" property="id" />
+		<result column="type" property="type" />
+		<result column="site_url" property="siteUrl" />
+		<result column="app_url" property="appUrl" />
+		<result column="number" property="number" />
+		<result column="percent" property="percent" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<select id="selectWebSiteType"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryLogQuickLaunch">
+		SELECT * FROM way_accessory_log_quick_launch where type=1
+		order by number
+	</select>
+
+	<select id="selectAppType"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryLogQuickLaunch">
+		SELECT * FROM way_accessory_log_quick_launch where type=2
+		order by number
+	</select>
+
+	<select id="selectAmountAppAll" resultType="Integer">
+		SELECT count(t.id)
+		FROM way_accessory_log_quick_launch as t where t.type=2
+	</select>
+
+	<select id="selectAmountWebAll" resultType="Integer">
+		SELECT count(t.id)
+		FROM way_accessory_log_quick_launch as t where type=1
+	</select>
+
+	<select id="selectApp"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryLogQuickLaunch">
+		SELECT * FROM way_accessory_log_quick_launch where
+		app_url=#{appUrl}
+	</select>
+
+	<select id="selectWeb"
+		resultType="com.stylefeng.guns.rest.common.persistence.model.WayAccessoryLogQuickLaunch">
+		SELECT * FROM way_accessory_log_quick_launch where
+		site_url=#{site_url}
+	</select>
+</mapper>
