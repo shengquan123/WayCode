@@ -1,0 +1,108 @@
+@layout("/common/_container.html"){
+<div class="row">
+	<div class="col-sm-12">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<div class="col-sm-2">
+					<h5>用户行为数据</h5>
+				</div>
+				<div class="col-sm-4" style="margin-top: -10px;"><#TimeCon
+					id="beginTime" name="开始日期" isTime="false" pattern="YYYY-MM-DD" /></div>
+				<div class="col-sm-4" style="margin-top: -10px;"><#TimeCon
+					id="endTime" name="结束日期" isTime="false" pattern="YYYY-MM-DD"/></div>
+				<div class="col-sm-2" style="margin-top: -10px;"><#button
+					name="搜索" icon="fa-search" clickFun="search_user_action();"/></div>
+			</div>
+			<div class="ibox-content">
+				<div class="row row-lg">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-1">日</div>
+							<div class="col-sm-1">周</div>
+							<div class="col-sm-1">月</div>
+							<div class="col-sm-6">
+								<div class="row" style="text-align: center;">日平均数</div>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">客户端启动的次数</div>
+							<div class="col-sm-1" id="day_num_1">0</div>
+							<div class="col-sm-1 week" id="week_num_1">0</div>
+							<div class="col-sm-1 month" id="month_num_1">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_1" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">客户端退出的次数</div>
+							<div class="col-sm-1" id="day_num_2">0</div>
+							<div class="col-sm-1 week" id="week_num_2">0</div>
+							<div class="col-sm-1 month" id="month_num_2">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_2" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">客户端切换帐号登录的次数</div>
+							<div class="col-sm-1" id="day_num_3">0</div>
+							<div class="col-sm-1 week" id="week_num_3">0</div>
+							<div class="col-sm-1 month" id="month_num_3">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_3" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">指纹登录/解锁点击次数</div>
+							<div class="col-sm-1" id="day_num_4">0</div>
+							<div class="col-sm-1 week" id="week_num_4">0</div>
+							<div class="col-sm-1 month" id="month_num_4">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_4" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">文件加解密点击次数</div>
+							<div class="col-sm-1" id="day_num_5">0</div>
+							<div class="col-sm-1 week" id="week_num_5">0</div>
+							<div class="col-sm-1 month" id="month_num_5">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_5" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">网页/应用快捷直达点击次数</div>
+							<div class="col-sm-1" id="day_num_6">0</div>
+							<div class="col-sm-1 week" id="week_num_6">0</div>
+							<div class="col-sm-1 month" id="month_num_6">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_6" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">应用/网站免密登录点击次数</div>
+							<div class="col-sm-1" id="day_num_7">0</div>
+							<div class="col-sm-1 week" id="week_num_7">0</div>
+							<div class="col-sm-1 month" id="month_num_7">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_7" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">使用小贴士点击次数</div>
+							<div class="col-sm-1" id="day_num_8">0</div>
+							<div class="col-sm-1 week" id="week_num_8">0</div>
+							<div class="col-sm-1 month" id="month_num_8">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_8" style="text-align: center;">-</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-sm-3">帮助中心点击次数</div>
+							<div class="col-sm-1" id="day_num_9">0</div>
+							<div class="col-sm-1 week" id="week_num_9">0</div>
+							<div class="col-sm-1 month" id="month_num_9">0</div>
+							<div class="col-sm-6 day_avg" id="day_rg_num_9" style="text-align: center;">-</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="${ctxPath}/static/modular/count/user_action.js"></script>
+@}

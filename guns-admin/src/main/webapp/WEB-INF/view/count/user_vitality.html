@@ -1,0 +1,102 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>用户活跃度</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+							<div class="col-sm-3">
+							</div>
+							<div class="col-sm-3">
+							日
+							</div>
+							<div class="col-sm-3">
+							周
+							</div> 
+							 <div class="col-sm-3">
+							 月
+							</div> 
+                        </div>
+                        <br />
+                        <div class="row">
+							<div class="col-sm-3">
+							活跃用户统计
+							</div>
+							<div class="col-sm-3">
+							<span id="day_num">0</span>
+							</div>
+							<div class="col-sm-3">
+							<span id="week_num">0</span>
+							</div> 
+							 <div class="col-sm-3">
+							 <span id="month_num">0</span>
+							</div> 
+                        </div>
+                        <br />
+                        <div class="row">
+							<div class="col-sm-3">
+							占比
+							</div>
+							<div class="col-sm-3">
+							<span id="day_rg">0%</span>
+							</div>
+							<div class="col-sm-3">
+							<span id="week_rg">0%</span>
+							</div> 
+							 <div class="col-sm-3">
+							<span id="month_rg">0%</span>
+							</div> 
+                        </div>
+						
+						
+                        <br /><br /><br />
+                        <br />
+                        <div class="row">
+							<div class="col-sm-12">用户所在地统计</div>
+							<br /><br />
+							<div class="col-sm-6">
+								<div id="city_sort_div"></div>
+							</div>
+							
+							<!-- 图表 -->
+						<div class="col-sm-6"  id="container" style="min-width:350px;height:350px;">						
+						
+                        </div>
+                                                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	
+	<!-- 图表 -->
+
+<script type="text/javascript"
+	src="${ctxPath}/static/Highcharts/highcharts.js"></script>
+
+
+<script type="text/javascript"
+	src="${ctxPath}/static/Highcharts/exporting.js"></script>
+	
+	<script type="text/javascript"
+	src="${ctxPath}/static/Highstock/highcharts-zh_CN.js"></script>
+
+	<script type="text/javascript"
+	src="${ctxPath}/static/modular/count/user_vitality.js"></script>
+	
+	<script>
+	jQuery(document)
+			.ready(
+					function() {
+					//主页面数据
+					get_user_vitality();
+					city_sort();
+							});
+</script>
+	
+@}

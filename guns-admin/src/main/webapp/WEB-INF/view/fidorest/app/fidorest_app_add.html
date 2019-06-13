@@ -1,0 +1,32 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+	<div class="ibox-content">
+		<div class="form-horizontal" id="appInfoForm">
+		
+			<input type="hidden" id="id" value="">
+
+			<div class="row">
+				<div class="col-sm-12" style="width:90%;">
+					<#input id="systemName" name="系统名称" readonly="readonly" hidden="systemId"
+                            clickFun="AppInfoDlg.showSystemSelectTree(); return false;"
+                            style="background-color: #ffffff !important;"/>
+					<#input id="appName" name="应用名称" underline="true"/>
+				</div>
+			</div>
+			<!-- 这是系统下拉框 -->
+			<div id="systemContent" class="menuContent"
+				style="display: none; position: absolute; z-index: 200;">
+				<ul id="systemTree" class="ztree tree-box" style="width: 250px !important;"></ul>
+			</div><!-- deptTree -->
+			<div class="row btn-group-m-t">
+				<div class="col-sm-10">
+					<#button btnCss="info" name="提交" id="ensure2" icon="fa-check" clickFun="AppInfoDlg.addApp()"/>
+					<#button btnCss="danger" name="取消" id="cancel2" icon="fa-eraser" clickFun="AppInfoDlg.close()"/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<script src="${ctxPath}/static/modular/fidorest/app/fidorest_app_info.js"></script>
+@}

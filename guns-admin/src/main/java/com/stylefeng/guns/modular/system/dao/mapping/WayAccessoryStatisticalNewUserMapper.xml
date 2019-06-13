@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.modular.system.dao.WayAccessoryStatisticalNewUserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.modular.system.model.WayAccessoryStatisticalNewUser">
+		<id column="id" property="id" />
+		<result column="check_date" property="checkDate" />
+		<result column="check_type" property="checkType" />
+		<!-- <result column="count" property="count" /> -->
+		<result column="count" property="countNumber" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<select id="selectDayCount"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryStatisticalNewUser">
+		<!-- SELECT * FROM way_accessory_statistical_new_user WHERE check_date=#{dayTime} 
+			and check_type=1; -->
+		SELECT id, check_date AS checkDate, check_type AS checkType,
+		count_number as countNumber, create_time AS createTime
+		FROM way_accessory_statistical_new_user WHERE check_date=#{dayTime} and
+		check_type=1;
+	</select>
+
+	<select id="selectWeekCount"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryStatisticalNewUser">
+		<!-- SELECT * FROM way_accessory_statistical_new_user WHERE check_date 
+			=#{weekTime} and check_type=2; -->
+		SELECT id, check_date AS checkDate, check_type AS checkType,
+		count_number as countNumber, create_time AS createTime
+		FROM way_accessory_statistical_new_user WHERE check_date =#{weekTime} and
+		check_type=2;
+	</select>
+
+	<select id="selectMonthCount"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryStatisticalNewUser">
+		<!-- SELECT * FROM way_accessory_statistical_new_user WHERE check_date 
+			=#{monthTime} and check_type=3; -->
+		SELECT id, check_date AS checkDate, check_type AS checkType,
+		count_number as countNumber, create_time AS createTime
+		FROM way_accessory_statistical_new_user WHERE check_date =#{monthTime} and
+		check_type=3;
+	</select>
+
+	<select id="selectHAllDayCount"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryStatisticalNewUser">
+		<!-- SELECT * FROM way_accessory_statistical_new_user WHERE check_type=1 
+			order by create_time ASC; -->
+		SELECT id, check_date AS checkDate, check_type AS checkType,
+		count_number as countNumber, create_time AS createTime
+		FROM way_accessory_statistical_new_user WHERE check_type=1 order by
+		create_time ASC;
+	</select>
+
+	<select id="selectHDayCount" resultType="Map">
+		SELECT count_number
+		count,check_date FROM way_accessory_statistical_new_user WHERE
+		create_time between #{startTime} and #{endTime} and check_type=1 order
+		by create_time asc;
+	</select>
+
+	<select id="selectHWeekCount" resultType="Map">
+		SELECT count_number
+		count,check_date FROM way_accessory_statistical_new_user WHERE
+		create_time between #{startTime} and #{endTime} and check_type=2 order
+		by create_time asc;
+	</select>
+
+	<select id="selectHMonthCount" resultType="Map">
+		SELECT count_number
+		count,check_date FROM way_accessory_statistical_new_user WHERE
+		create_time between #{startTime} and #{endTime} and check_type=3 order
+		by create_time asc;
+	</select>
+
+</mapper>

@@ -1,0 +1,35 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+	<div class="ibox-content">
+		<div class="form-horizontal" id="softInfoForm">
+			<input type="hidden" id="id" value="">
+			<div class="row">
+				<div class="col-sm-12" style="width:88%;">
+					<#selectSoft id="softType" name="软件类型" underline="true" changeFun="SoftInfoDlg.changeFunction()">
+						<option value="1">客户端App-SAFE</option>
+						<option value="2">客户端App-NORMAL</option>
+						<option value="3">设备固件-SAFE</option>
+						<option value="4">设备固件-NORMAL1</option>
+						<option value="5">设备固件-NORMAL3</option>
+					</#selectSoft>
+					<#input id="versionName" name="版本名称" underline="true"/>
+					<#input id="versionNumber" name="版本号" underline="true"/>
+					<#input id="fileCheckCode" name="校验码" underline="true"/>
+					<#upload id="fileUploadBtn" name="上传文件"  underline="true"/>
+				</div>
+			</div>
+			<div class="progress progress-striped" id="progressTipArea">
+            	<div id="progressBar" style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-info">
+               	</div>
+            </div>
+			<div class="row btn-group-m-t">
+				<div class="col-sm-10">
+					<#button btnCss="info" name="提交" id="ensure2" icon="fa-check" clickFun="SoftInfoDlg.addSubmit()"/>
+					<#button btnCss="danger" name="取消" id="cancel2" icon="fa-eraser" clickFun="SoftInfoDlg.close()"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="${ctxPath}/static/modular/system/version/version_add.js"></script>
+@}

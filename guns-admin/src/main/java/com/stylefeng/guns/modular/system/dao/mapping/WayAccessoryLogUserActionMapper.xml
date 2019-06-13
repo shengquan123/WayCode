@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.modular.system.dao.WayAccessoryLogUserActionMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.modular.system.model.WayAccessoryLogUserAction">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="check_date" property="checkDate" />
+		<result column="type" property="type" />
+		<result column="count" property="count" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+	<select id="selectWayAccessoryLogUserActionByUserBy"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryLogUserAction">
+		SELECT * FROM way_accessory_log_user_action WHERE user_id =
+		#{userId} and check_date = #{checkDate} and type = #{type}
+	</select>
+
+	<select id="selectYesterdayAmount" resultType="Map">
+		SELECT
+		type,count(count) count FROM way_accessory_log_user_action WHERE
+		check_date = #{yesterday} group by type order by type asc
+	</select>
+
+	<select id="selectLastWeekAmount" resultType="Map">
+		SELECT
+		type,count(count) count FROM way_accessory_log_user_action WHERE
+		month(create_time) = month(curdate()) and week(create_time,1) =
+		week(curdate())
+	</select>
+
+
+	<select id="selectLastMonthAmount" resultType="Map">
+		SELECT
+		type,count(count) count FROM way_accessory_log_user_action WHERE
+		month(create_time) = month(curdate()) and year(create_time) =
+		year(curdate())
+	</select>
+
+	<select id="selectEncryptAmount" resultType="Integer">
+		SELECT count(count)
+		count FROM way_accessory_log_user_action WHERE user_id=#{userId} and
+		type=7
+	</select>
+
+	<select id="activeYesterdayAmount" resultType="Integer">
+		SELECT count(id)
+		FROM way_accessory_log_user_action WHERE user_id !=0 and
+		check_date=#{dayTime} group by user_id
+	</select>
+
+	<select id="activeLastWeekAmount" resultType="Integer">
+		SELECT count(id)
+		FROM way_accessory_log_user_action WHERE month(create_time) =
+		month(curdate()) and week(create_time,1) = week(curdate()) and
+		user_id!=0 group by user_id
+	</select>
+
+
+	<select id="activeLastMonthAmount" resultType="Integer">
+		SELECT count(id)
+		FROM way_accessory_log_user_action WHERE month(create_time) =
+		month(curdate()) and year(create_time) = year(curdate()) and
+		user_id!=0 group by user_id
+	</select>
+
+	<select id="selectDayAmount" resultType="Map">
+		SELECT count(count)
+		count,type FROM way_accessory_log_user_action WHERE
+		create_time>#{dayTime} group by type
+	</select>
+
+	<select id="selectWeekAmount" resultType="Map">
+		SELECT count(count)
+		count,type FROM way_accessory_log_user_action WHERE month(create_time)
+		= month(curdate()) and week(create_time,1) = week(curdate()) group by
+		type
+	</select>
+
+
+	<select id="selectMonthAmount" resultType="Map">
+		SELECT count(count)
+		count,type FROM way_accessory_log_user_action WHERE month(create_time)
+		= month(curdate()) and year(create_time) = year(curdate()) group by
+		type
+	</select>
+
+	<select id="selectDayAvgAmount" resultType="Map">
+		SELECT count(count)
+		count,type FROM way_accessory_log_user_action WHERE create_time
+		Between #{startTime} and #{endTime} group by type
+	</select>
+</mapper>

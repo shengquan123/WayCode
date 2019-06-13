@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>互啊佑 - 登录</title>
+		<link rel="shortcut icon" href="${ctxPath}/static/favicon.ico">
+		<link href="${ctxPath}/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="${ctxPath}/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="${ctxPath}/static/css/animate.css" rel="stylesheet">
+		<link href="${ctxPath}/static/css/style.css?v=4.1.0" rel="stylesheet">
+		<link rel="stylesheet" href="${ctxPath}/static/css/pnotify.css" />
+		<link rel="stylesheet" href="${ctxPath}/static/css/custom.min.css" />
+		<script>
+			if (window.top !== window.self) {
+				window.top.location = window.location;
+			}
+		</script>
+		<script src="${ctxPath}/static/js/jquery.min.js?v=2.1.4"></script>
+		<script src="${ctxPath}/static/js/jquery.cookie.js"></script>
+		<script src="${ctxPath}/static/js/bootstrap.min.js?v=3.3.6"></script>
+		
+		
+		<script src="${ctxPath}/static/fido2/base64js-1.3.0.min.js"></script>
+		<script src="${ctxPath}/static/fido2/base64url.js"></script>
+		<script src="${ctxPath}/static/fido2/webauthn.js"></script>
+    	
+    	
+		<script src="${ctxPath}/static/modular/system/login/login.js"></script>
+		<script src="${ctxPath}/static/js/u2f-api.js/"></script>
+		<script src="${ctxPath}/static/js/pnotify.js"></script>
+	</head>
+
+	<body class="gray-bg">
+		<br/><br/><br/>
+		<div style="text-align: center;">
+			<h1 class="logo-name">
+				<img alt="" src="${ctxPath}/static/img/420825833191824740.png">
+			</h1>
+		</div>
+		<div class="middle-box text-center loginscreen  animated fadeInDown">
+			<div style="padding: 0px 0px;">
+				<h4 id="error_h4" style="color: red;">${tips!}</h4>
+				<form class="m-t" role="form" action="${ctxPath}/login" method="post">
+					<div class="form-group">
+						<input type="text" name="username" class="form-control" placeholder="用户名" required="">
+					</div>
+					<div id="password" class="form-group" style="display: block;">
+						<input type="password" name="password" class="form-control" placeholder="密码">
+					</div>
+					@if(kaptcha.getKaptchaOnOff() == true){
+					<div id="kaptcha_div" class="form-group" style="float: left;">
+						<div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+							<input class="form-control" type="text" name="kaptcha" placeholder="验证码">
+						</div>
+						<div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
+							<img src="${ctxPath}/kaptcha" id="kaptcha" width="100%" height="100%" />
+						</div>
+					</div>
+					@}
+					<div class="form-group" style="float: left;">
+						<div class="checkbox" style="text-align: left">
+							<label id="remember"> <input type="checkbox" name="remember" style="margin-top: 4px;"> 记住我</label>
+							<!-- <label id="login_pwdless" style="margin-left:135px;"> <input type="checkbox" style="margin-top: 2px;">
+								使用免密登录
+							</label> -->
+							<input id="login_pwdless" type="checkbox" name="login_u2f" style="margin-top: 4px; margin-left: 135px;">
+							<label id="label_pwdless" for="login_pwdless" style="margin-left: 135px;"> 使用免密登录 </label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary block full-width m-b" onclick="return formSubmit();">登 录</button>
+				</form>
+			</div>
+		</div>
+
+		<!-- 登录模态框（Modal） -->
+		<div class="modal fade" id="show_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">设备登录</h4>
+					</div>
+					<div class="modal-body" style="text-align: center;">
+						<!-- 设备登录的显示 -->
+						<!-- <span id="show_user_name" style="font-size: 20px;">用户名称</span> -->
+						<div id="show_error_div">
+							<br/><small id="show_error_massge" style="color: red;"></small>
+							<br/>
+						</div>
+						<div>
+							<img src="https://www.whoareyou.live/admin/markdown/images/security_key_laptop.gif" style="height: 150px; margin-left: -50px;"/><br/>
+						</div>
+						<div>
+							<br/> 两步验证：使用您的安全密钥登录<br />将您的安全密钥插入计算机的usb端口，<br />然后按上面的按钮（如果有的话）。
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+		    $(function () {
+		        $("#kaptcha").on('click', function () {
+		            $("#kaptcha").attr('src', '${ctxPath}/kaptcha?' + Math.floor(Math.random() * 100)).fadeIn();
+		        });
+		    });
+		</script>
+	</body>
+</html>

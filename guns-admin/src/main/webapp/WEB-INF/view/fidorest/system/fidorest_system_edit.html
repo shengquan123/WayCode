@@ -1,0 +1,25 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+	<div class="ibox-content">
+		<div class="form-horizontal" id="systemInfoForm">
+		
+			<input type="hidden" id="id" value="${wayFidoU2FSystem.id}">
+
+			<div class="row">
+				<div class="col-sm-12" style="width:90%;">
+					<#input id="systemName" name="系统名称" underline="true" value="${wayFidoU2FSystem.systemName}"/>
+					<#input id="systemDoMain" name="系统域名" underline="true" value="${wayFidoU2FSystem.systemDoMain}" />
+				</div>
+			</div>
+			<div class="row btn-group-m-t">
+				<div class="col-sm-10">
+					<#button btnCss="info" name="提交" id="ensure2" icon="fa-check" clickFun="SystemInfoDlg.updateSystem()"/>
+					<#button btnCss="danger" name="取消" id="cancel2" icon="fa-eraser" clickFun="SystemInfoDlg.close()"/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<script src="${ctxPath}/static/modular/fidorest/system/fidorest_system_info.js"></script>
+@}

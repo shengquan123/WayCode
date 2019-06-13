@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+        namespace="com.stylefeng.guns.modular.system.dao.WayFido2RelyPartyMapper">
+
+    <!-- 1.way_rely_party表与Model(WayFido2RelyParty)的通用查询映射结果 -->
+    <resultMap id="BaseResultMap"
+               type="com.stylefeng.guns.modular.system.model.WayFido2RelyParty">
+        <id column="id" property="id"/>
+        <result column="rp_id" property="rpId"/>
+        <result column="rp_name" property="rpName"/>
+        <result column="origins" property="origins"/>
+        <result column="app_id" property="appId"/>
+        <result column="token" property="token"/>
+        <result column="add_time" property="addTime"/>
+        <result column="expire_time" property="expireTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    
+    <select id="selectById" parameterType="Integer" resultMap="BaseResultMap">
+    	SELECT * FROM way_fido2_rely_party 
+    	WHERE id = #{id}
+    </select>
+
+    <!-- 查询全部fido2_rely_party记录(包含模糊查询) -->
+    <!-- resultType="com.stylefeng.guns.modular.system.model.WayFido2RelyParty"> -->
+    <select id="selectAllRelyParty" parameterType="com.baomidou.mybatisplus.plugins.Page"
+            resultMap="BaseResultMap">
+        SELECT * FROM way_fido2_rely_party where 1 = 1
+        <if test="rpName != null and rpName != ''">
+            and rp_name LIKE concat('%',#{rpName},'%')
+        </if>
+        <choose>
+            <when test="orderByField != null and orderByField !=''">
+                <choose>
+                    <when test="isAsc == true">
+                        order by ${orderByField} ASC
+                    </when>
+                    <otherwise>
+                        order by ${orderByField} DESC
+                    </otherwise>
+                </choose>
+            </when>
+            <otherwise>
+                order by add_time DESC
+            </otherwise>
+        </choose>
+    </select>
+    
+    <insert id="addRelyParty" parameterType="com.stylefeng.guns.modular.system.model.WayFido2RelyParty">
+    	INSERT INTO way_fido2_rely_party
+    		(rp_id, rp_name, origins, add_time)
+    	VALUES(#{rpId},#{rpName}, #{origins}, #{addTime})
+    </insert>
+
+    <update id="updateFidoRelyParty" parameterType="com.stylefeng.guns.modular.system.model.WayFido2RelyParty">
+        UPDATE way_fido2_rely_party
+        <set>
+            <if test="rpId != null and rpId!= ''">
+                rp_id = #{rpId},
+            </if>
+            <if test="rpName != null and rpName != ''">
+                rp_name = #{rpName},
+            </if>
+            <if test="origins != null and origins != ''">
+                origins = #{origins},
+            </if>
+            <if test="appId != null and appId != ''">
+                app_id = #{appId},
+            </if>
+            <if test="token != null and token != ''">
+                token = #{token},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+            <if test="expireTime != null">
+                expire_time = #{expireTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime}
+            </if>
+        </set>
+    </update>
+    
+    <select id="selectRpByRpName" resultType="Integer">
+    	SELECT COUNT(*) FROM way_fido2_rely_party
+    	WHERE rp_name = #{rpName}
+    </select>
+
+
+</mapper>

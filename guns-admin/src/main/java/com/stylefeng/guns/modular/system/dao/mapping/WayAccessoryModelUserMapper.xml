@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.modular.system.dao.WayAccessoryModelUserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.modular.system.model.WayAccessoryModelUser">
+		<id column="id" property="id" />
+		<result column="phone_no" property="phoneNo" />
+		<result column="account_name" property="accountName" />
+		<result column="email" property="email" />
+		<result column="nick_name" property="nickName" />
+		<result column="sex_flag" property="sexFlag" />
+		<result column="status" property="status" />
+		<result column="ip_address" property="ipAddress" />
+		<result column="city" property="city" />
+		<result column="privince" property="privince" />
+		<!-- <result column="number" property="number" /> -->
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+
+	<select id="selectOneUserTest"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryModelUser">
+		<!-- SELECT id, phone_no as phoneNo, account_name as accountName, email, 
+			nick_name as nickName, sex_flag as sexFlag, status, ip_address as ipAddress, 
+			city, privince, number, create_time as createTime, update_time as updateTime 
+			FROM way_accessory_model_user WHERE id = 1 -->
+		SELECT * FROM way_accessory_model_user WHERE id = 1
+	</select>
+
+	<select id="selectWayAccessoryModelUserByPhone"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryModelUser">
+		<!-- SELECT * FROM way_accessory_model_user WHERE phone_no = #{phone} and 
+			status=#{status} -->
+		SELECT id, phone_no as phoneNo, account_name as accountName, email,
+		nick_name as nickName,
+		sex_flag as sexFlag, status, ip_address as
+		ipAddress, city, privince, number,
+		create_time as createTime,
+		update_time as updateTime
+		FROM
+		way_accessory_model_user
+		WHERE phone_no =
+		#{phone} and status=#{status}
+	</select>
+
+	<select id="selectWayAccessoryModelUserByMail"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryModelUser">
+		SELECT * FROM way_accessory_model_user
+		WHERE email = #{mail}
+		AND status = #{status}
+	</select>
+
+	<select id="selectDayCount" resultType="Integer">
+		SELECT count(*) FROM
+		way_accessory_model_user WHERE create_time>#{dayTime} and status=1
+	</select>
+
+	<select id="selectWeekCount" resultType="Integer">
+		SELECT count(*) FROM
+		way_accessory_model_user WHERE month(create_time) = month(curdate())
+		and week(create_time,1) = week(curdate()) and status=1
+	</select>
+
+	<select id="selectMonthCount" resultType="Integer">
+		SELECT count(*) FROM
+		way_accessory_model_user WHERE month(create_time) = month(curdate())
+		and year(create_time) = year(curdate()) and status=1
+	</select>
+
+	<select id="selectArea" resultType="map">
+		SELECT count(*) count,city
+		FROM way_accessory_model_user group by city order by count(*) desc
+	</select>
+
+	<select id="selectAllAmount" resultType="Integer">
+		SELECT count(*) FROM
+		way_accessory_model_user
+	</select>
+
+	<select id="selectYesterdayAmount" resultType="Integer">
+		SELECT count(*)
+		FROM way_accessory_model_user WHERE create_time>#{yesterday}
+		and
+		status=1
+	</select>
+
+	<select id="selectLastWeekAmount" resultType="Integer">
+		SELECT count(*)
+		FROM way_accessory_model_user WHERE month(create_time) =
+		month(curdate()) and week(create_time,1) = week(curdate()) and
+		status=1
+	</select>
+
+	<select id="selectLastMonthAmount" resultType="Integer">
+		SELECT count(*)
+		FROM way_accessory_model_user WHERE month(create_time) =
+		month(curdate()) and year(create_time) = year(curdate()) and status=1
+	</select>
+
+	<select id="selectNewUser"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryModelUser">
+		SELECT id, phone_no as phoneNo, account_name as
+		accountName, email,
+		nick_name as nickName,
+		sex_flag as sexFlag, status,
+		ip_address as
+		ipAddress, city, privince, number,
+		create_time as
+		createTime,
+		update_time as updateTime
+		FROM way_accessory_model_user
+		WHERE
+		create_time BETWEEN #{startTime} AND
+		#{endTime} ORDER BY
+		create_time
+		DESC
+	</select>
+
+	<select id="selectKeyNewUser"
+		resultType="com.stylefeng.guns.modular.system.model.WayAccessoryModelUser">
+		SELECT id, phone_no as phoneNo, account_name as accountName, email,
+		nick_name as nickName, sex_flag as sexFlag, status,
+		ip_address as ipAddress, city, privince, number,
+		create_time as createTime, update_time as updateTime
+		FROM way_accessory_model_user
+		WHERE (phone_no LIKE concat(concat('%', #{key}), '%') OR account_name
+			LIKE concat(concat('%', #{key}),'%') OR email LIKE concat(concat('%',
+			#{key}), '%'))
+			and create_time between #{startTime} and #{endTime}
+		ORDER BY create_time DESC
+	</select>
+
+	<select id="selectDayActiveCount" resultType="Integer">
+		SELECT count(*)
+		FROM way_accessory_model_user WHERE create_time>#{dayTime} and
+		status=1
+	</select>
+
+	<select id="selectWeekActiveCount" resultType="Integer">
+		SELECT count(*)
+		FROM way_accessory_model_user WHERE month(update_time) =
+		month(curdate()) and week(create_time,1) = week(curdate()) and
+		status=1
+	</select>
+
+	<select id="selectMonthActiveCount" resultType="Integer">
+		SELECT count(*)
+		FROM way_accessory_model_user WHERE month(update_time) =
+		month(curdate()) and year(update_time) = year(curdate()) and status=1
+	</select>
+</mapper>

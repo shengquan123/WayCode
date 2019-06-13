@@ -1,0 +1,70 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>操作系统占比</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                        	<div class="col-sm-12" style="text-align: center;">
+                       			操作系统占比统计
+                        	</div>
+                        	<br /><br /><br /><br />
+                        	
+                        	<div class="col-sm-6" >
+                        		<div class="col-sm-4">操作系统</div>
+                        		<div class="col-sm-4">数量</div>
+                        		<div class="col-sm-4">占比</div>
+                        		<br /><br /><br /><br />                        	
+                        		<div class="col-sm-4" >WIN7</div>
+                        		<div class="col-sm-4" id="WIN7_num">0</div>
+                        		<div class="col-sm-4" id="WIN7_rg" >0%</div>
+                        		<br /><br /><br /><br />
+                        		<div class="col-sm-4" >WIN8</div>
+                        		<div class="col-sm-4" id="WIN8_num">0</div>
+                        		<div class="col-sm-4" id="WIN8_rg" >0%</div>
+                        		<br /><br /><br /><br />
+                        		<div class="col-sm-4" >WIN8.1</div>
+                        		<div class="col-sm-4" id="WIN8_1_num">0</div>
+                        		<div class="col-sm-4" id="WIN8_1_rg" >0%</div>
+                        		<br /><br /><br /><br />
+                        		<div class="col-sm-4" >WIN10</div>
+                        		<div class="col-sm-4" id="WIN10_num">0</div>
+                        		<div class="col-sm-4" id="WIN10_rg" >0%</div>                        		                        		
+                        		<br /><br /><br /><br />         		
+                        	</div>
+                        	<div class="col-sm-6"  id="container" style="min-width:350px;height:350px;">
+                        	</div>
+                        	<br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 图表 -->
+
+<script type="text/javascript"
+	src="${ctxPath}/static/Highcharts/highcharts.js"></script>
+
+
+<script type="text/javascript"
+	src="${ctxPath}/static/Highcharts/exporting.js"></script>
+	
+	<script type="text/javascript"
+	src="${ctxPath}/static/Highstock/highcharts-zh_CN.js"></script>
+	
+<script src="${ctxPath}/static/modular/count/wind_pr.js"></script>
+<script>
+	jQuery(document)
+			.ready(
+					function() {
+					get_wind_pr();
+							});
+</script>
+@}

@@ -1,0 +1,35 @@
+guns-admin部署提示：
+
+1.修改Spring总配置生产环境还是测试环境
+文件目录：src/main/resources/application.yml
+修改属性：spring.profiles.active: produce or dev 选择测试环境还是生产环境填写即可
+
+2.修改Gunsflowable工作流的的配置
+文件目录：src/main/java/com/stylefeng/guns/config/properties/GunsFlowableProperties.java
+修改属性：数据库url和password 选择测试环境还是生产环境注释即可
+
+################Deploy Script################
+
+#进入到Tomcat目录，停止Tomcat
+cd /opt/tomcat8/webapps
+service tomcat8 stop
+
+#移除旧项目
+rm -rf guns-admin
+ls
+
+#解压新项目
+unzip guns-admin.zip
+ls
+
+#删除新项目zip
+rm -rf guns-admin.zip
+ls
+
+#开启Tomcat查看日志
+service tomcat8 start
+cd /opt/tomcat8/logs
+tail -f catalina.out
+
+################Deploy Script################
+

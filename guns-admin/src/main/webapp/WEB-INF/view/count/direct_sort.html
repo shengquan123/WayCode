@@ -1,0 +1,138 @@
+@layout("/common/_container.html"){
+<div class="row">
+	<div class="col-sm-6">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>直达排序</h5>
+			</div>
+			<div class="ibox-content">
+				<div class="row row-lg">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-12" style="text-align: center;">
+								直达占比统计（前十位）</div>
+							<br /> <br />
+							<div class="col-sm-12">
+								<div class="col-sm-4">排名</div>
+								<div class="col-sm-4">网址</div>
+								<div class="col-sm-4">占比</div>
+								<br /> <br />
+								<div class="col-sm-4">1</div>
+								<div class="col-sm-4" id="url_num_1"></div>
+								<div class="col-sm-4" id="url_rg_1"></div>
+								<br /> <br />
+								<div class="col-sm-4">2</div>
+								<div class="col-sm-4" id="url_num_2"></div>
+								<div class="col-sm-4" id="url_rg_2"></div>
+								<br /> <br />
+								<div class="col-sm-4">3</div>
+								<div class="col-sm-4" id="url_num_3"></div>
+								<div class="col-sm-4" id="url_rg_3"></div>
+								<br /> <br />
+								<div class="col-sm-4">4</div>
+								<div class="col-sm-4" id="url_num_4"></div>
+								<div class="col-sm-4" id="url_rg_4"></div>
+								<br /> <br />
+								<div class="col-sm-4">5</div>
+								<div class="col-sm-4" id="url_num_5"></div>
+								<div class="col-sm-4" id="url_rg_5"></div>
+								<br /> <br />
+								<div class="col-sm-4">6</div>
+								<div class="col-sm-4" id="url_num_6"></div>
+								<div class="col-sm-4" id="url_rg_6"></div>
+								<br /> <br />
+								<div class="col-sm-4">7</div>
+								<div class="col-sm-4" id="url_num_7"></div>
+								<div class="col-sm-4" id="url_rg_7"></div>
+								<br /> <br />
+								<div class="col-sm-4">8</div>
+								<div class="col-sm-4" id="url_num_8"></div>
+								<div class="col-sm-4" id="url_rg_8"></div>
+								<br /> <br />
+								<div class="col-sm-4">9</div>
+								<div class="col-sm-4" id="url_num_9"></div>
+								<div class="col-sm-4" id="url_rg_9"></div>
+								<br /> <br />
+								<div class="col-sm-4">10</div>
+								<div class="col-sm-4" id="url_num_10"></div>
+								<div class="col-sm-4" id="url_rg_10"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>直达排序</h5>
+			</div>
+			<div class="ibox-content">
+				<div class="row row-lg">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-12" style="text-align: center;">
+								网址/应用/文件占比</div>
+							<br /> <br />
+							<div class="col-sm-12" id="app_div">
+								<div class="col-sm-4">排名</div>
+								<div class="col-sm-4">应用</div>
+								<div class="col-sm-4">占比</div>
+								<br /> <br />
+								<div class="col-sm-4">1</div>
+								<div class="col-sm-4" id="app_num_1"></div>
+								<div class="col-sm-4" id="app_rg_1"></div>
+								<br /> <br />
+								<div class="col-sm-4">2</div>
+								<div class="col-sm-4" id="app_num_2"></div>
+								<div class="col-sm-4" id="app_rg_2"></div>
+								<br /> <br />
+								<div class="col-sm-4">3</div>
+								<div class="col-sm-4" id="app_num_3"></div>
+								<div class="col-sm-4" id="app_rg_3"></div>
+								<br /> <br />
+								<div class="col-sm-4">4</div>
+								<div class="col-sm-4" id="app_num_4"></div>
+								<div class="col-sm-4" id="app_rg_4"></div>
+								<br /> <br />
+								<div class="col-sm-4">5</div>
+								<div class="col-sm-4" id="app_num_5"></div>
+								<div class="col-sm-4" id="app_rg_5"></div>
+								<br /> <br />
+								<div class="col-sm-4">6</div>
+								<div class="col-sm-4" id="app_num_6"></div>
+								<div class="col-sm-4" id="app_rg_6"></div>
+								<br /> <br />
+								<div class="col-sm-4">7</div>
+								<div class="col-sm-4" id="app_num_7"></div>
+								<div class="col-sm-4" id="app_rg_7"></div>
+								<br /> <br />
+								<div class="col-sm-4">8</div>
+								<div class="col-sm-4" id="app_num_8"></div>
+								<div class="col-sm-4" id="app_rg_8"></div>
+								<br /> <br />
+								<div class="col-sm-4">9</div>
+								<div class="col-sm-4" id="app_num_9"></div>
+								<div class="col-sm-4" id="app_rg_9"></div>
+								<br /> <br />
+								<div class="col-sm-4">10</div>
+								<div class="col-sm-4" id="app_num_10"></div>
+								<div class="col-sm-4" id="app_rg_10"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="${ctxPath}/static/modular/count/direct_sore.js"></script>
+<script>
+	jQuery(document)
+			.ready(
+					function() {
+					get_direct_sore();
+							});
+</script>
+@}

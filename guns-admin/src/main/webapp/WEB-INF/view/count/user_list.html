@@ -1,0 +1,47 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>用户列表</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-lg-10 col-sm-9">
+										<div class="row">
+											<div class="col-lg-4 col-sm-12">
+												<#NameCon id="name" name="帐号" placeholder="手机号/邮箱账号/账号名称"/>
+											</div>
+											<div class="col-lg-4 col-sm-6">
+												<#TimeCon id="beginTime" name="注册开始日期" isTime="false" pattern="YYYY-MM-DD"/>
+											</div>
+											<div class="col-lg-4 col-sm-6">
+												<#TimeCon id="endTime" name="注册结束日期" isTime="false" pattern="YYYY-MM-DD"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-sm-3">
+										<div class="row">
+											<div class="col-lg-12 col-sm-12">
+												<#button name="搜索" icon="fa-search" clickFun="MgrUser.search()"/>
+												</div>
+										</div>
+									</div>
+								</div>
+								发送短信总条数：<span id="sms_num">0</span>条<br>
+								邮件发送总条数：<span id="mail_num">0</span>条
+								<#table id="managerTable"/>
+							</div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/count/user_list.js"></script>
+@}

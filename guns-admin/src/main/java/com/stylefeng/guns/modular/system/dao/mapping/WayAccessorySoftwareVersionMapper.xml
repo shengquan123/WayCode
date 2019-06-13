@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.stylefeng.guns.modular.system.dao.WayAccessorySoftwareVersionMapper">
+
+	<!-- 1.版本表(way_accessory_software_version)与Model(Version)的通用查询映射结果 -->
+	<resultMap id="BaseResultMap"
+		type="com.stylefeng.guns.modular.system.model.WayAccessorySoftwareVersion">
+		<id column="id" property="id"/>
+		<result column="type" property="type"/>
+		<result column="version_name" property="versionName"/>
+		<result column="verson_number" property="versionNumber"/>
+		<result column="file_checkcode" property="fileCheckCode"/>
+		<result column="download_path" property="downloadPath"/>
+		<result column="publish_time" property="publishTime"/>
+	</resultMap>
+
+	<!-- 2.查询软件版本列表(可根据软件类型进行条件查询) -->
+	<select id="getVersions" resultType="map">
+		select * from way_accessory_software_version where 1 = 1
+		<if test="type != null and type != ''">
+			and type = #{type}
+		</if>
+		<choose>
+			<when test="orderByField != null and orderByField !=''">
+				<choose>
+					<when test="isAsc == true">
+						order by ${orderByField} ASC
+					</when>
+					<otherwise>
+						order by ${orderByField} DESC
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				order by publish_time DESC
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- 3.添加一条软件版本记录 -->
+	<insert id="addVersion"
+		parameterType="com.stylefeng.guns.modular.system.model.WayAccessorySoftwareVersion">
+		INSERT INTO way_accessory_software_version (type,
+		version_name, version_number, file_checkcode, download_path, publish_time)
+		VALUES(#{type}, #{versionName}, #{versionNumber}, #{fileCheckCode}, #{downloadPath},
+		#{publishTime})
+	</insert>
+
+	<!-- 4.根据软件Id删除一条软件版本记录 -->
+	<delete id="deleteVersionById">
+		DELETE FROM way_accessory_software_version
+		WHERE
+		id=#{versionId}
+	</delete>
+</mapper>

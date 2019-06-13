@@ -1,0 +1,106 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>新增用户</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row" style="color:#4F9D9D;font-size:15px;">
+							<div class="col-sm-5">
+								<div class="col-sm-4"><b>用户数量</b></div>
+								<div class="col-sm-4"><b>今日新增</b></div>
+								<div class="col-sm-4"><b>占比</b></div>
+							</div>
+							<div class="col-sm-5">
+								<div class="col-sm-4"><b>本周新增</b></div>
+								<div class="col-sm-4"><b>占比</b></div>
+								<div class="col-sm-4"><b>本月新增</b></div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-12"><b>占比</b></div>
+							</div>   
+                        </div>
+                        <br />
+                        <div class="row"  style="color:#4F9D9D;font-size:15px;">
+							<div class="col-sm-5">
+								<div class="col-sm-4"><b><span id="userCount"></span></b></div>
+								<div class="col-sm-4"><b><span id="dayCount"></span></b></div>
+								<div class="col-sm-4"><b><span id="dayPercent"></span></b></div>
+							</div>
+							<div class="col-sm-5">
+								<div class="col-sm-4"><b><span id="weekCount"></span></b></div>
+								<div class="col-sm-4"><b><span id="weekPercent"></span></b></div>
+								<div class="col-sm-4"><b><span id="monthCount"></span></b></div>
+							</div>
+							<div class="col-sm-2">
+								<div class="col-sm-12"><b><span id="monthPercent"></span></b></div>
+							</div>   
+                        </div>
+                        <br /><br />
+                        <!-- 图表 -->
+                        <div class="row">
+						<div class="col-md-12">
+							<div id="container"> </div>
+							</div>
+                        </div>
+                        <br /><br />
+                       <!-- 列表 --> 
+                        <div class="row">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-lg-10 col-sm-9">
+										<div class="row">
+											<div class="col-lg-4 col-sm-12">
+												<#NameCon id="name" name="帐号" placeholder="手机号/邮箱账号/账号名称"/>
+											</div>
+											<div class="col-lg-4 col-sm-6">
+												<#TimeCon id="beginTime" name="注册开始日期" isTime="false" pattern="YYYY-MM-DD"/>
+											</div>
+											<div class="col-lg-4 col-sm-6">
+												<#TimeCon id="endTime" name="注册结束日期" isTime="false" pattern="YYYY-MM-DD"/>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-2 col-sm-3">
+										<div class="row">
+											<div class="col-lg-12 col-sm-12">
+												<#button name="搜索" icon="fa-search" clickFun="MgrUser.search()"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<#table id="managerTable"/>
+							</div>
+                        </div>                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+						
+<!-- 图表 -->
+
+<script type="text/javascript"
+	src="${ctxPath}/static/Highstock/highstock.js"></script>
+<script type="text/javascript"
+	src="${ctxPath}/static/Highstock/exporting.js"></script>
+	<script type="text/javascript"
+	src="${ctxPath}/static/Highstock/highcharts-zh_CN.js"></script>
+	<script type="text/javascript"
+	src="${ctxPath}/static/Highstock/mycharts_new_user.js"></script>
+<script src="${ctxPath}/static/modular/count/new_user.js"></script>
+<script>
+	jQuery(document)
+			.ready(
+					function() {
+					//主页面数据
+					new_user();
+					Charts.initPieCharts();
+							});
+</script>
+@}

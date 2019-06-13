@@ -1,0 +1,237 @@
+@layout("/common/_container.html"){ 
+  <div class="row"> 
+   <div class="col-sm-12"> 
+    <div class="ibox float-e-margins"> 
+     <div class="ibox-title"> 
+      <h5>指纹注册占比</h5> 
+     </div> 
+     <div class="ibox-content"> 
+      <div class="row row-lg"> 
+       <div class="col-sm-12"> 
+        <div class="row"  style="color:#4F9D9D;font-size:15px;"> 
+         <div class="col-sm-12"> 
+          <div class="col-sm-4">
+          <b> 用户数量</b>
+          </div> 
+          <div class="col-sm-4">
+           <b>注册指纹总数量</b>
+          </div> 
+          <div class="col-sm-4">
+           <b>平均一个用户注册的指纹数量</b>
+          </div> 
+         </div> 
+         <div class="col-sm-12"> 
+          <div class="col-sm-4">
+         <b> <span id="userAmout"></span></b>
+          </div> 
+          <div class="col-sm-4">
+           <b><span id="fingerprintAmout"></span></b>
+          </div> 
+          <div class="col-sm-4">
+           <b><span id="avgFingerprintAmout"></span></b>
+          </div> 
+         </div> 
+        </div> 
+        <br /> 
+        <br /> 
+        <br />
+        <br />
+        <br />
+        <br />                       
+        <div class="row"> 
+         <div class="col-sm-6" style="height:300px;">				
+          <img alt="" src="../static/img/20170824193425.png" width="500px;" style="position:absolute;" />
+
+         <div style="position: absolute;float: left;margin-left:24px;margin-top:60px;" >
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(10);" 
+         onmouseout="hideTooltip(10);" />
+         	<div id="tooltip10" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:55px;margin-top:20px;">
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(9);" 
+         onmouseout="hideTooltip(9);" />
+         	<div id="tooltip9" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>	
+		<div style="position: absolute;float: left;margin-left:95px;margin-top:0px;">
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(8);" 
+         onmouseout="hideTooltip(8);" />
+         	<div id="tooltip8" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:140px;margin-top:20px;" >
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(7);" 
+         onmouseout="hideTooltip(7);" />
+         	<div id="tooltip7" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:195px;margin-top:110px;" >
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(6);" 
+         onmouseout="hideTooltip(6);" />
+         	<div id="tooltip6" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:280px;margin-top:100px;">
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(5);" 
+         onmouseout="hideTooltip(5);" />
+         	<div id="tooltip5" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:335px;margin-top:20px;" >
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(4);" 
+         onmouseout="hideTooltip(4);" />
+         	<div id="tooltip4" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:380px;margin-top:5px;" >
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(3);" 
+         onmouseout="hideTooltip(3);" />
+         	<div id="tooltip3" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:420px;margin-top:20px;" >
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(2);" 
+         onmouseout="hideTooltip(2);" />
+         	<div id="tooltip2" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+		<div style="position: absolute;float: left;margin-left:455px;margin-top:50px;" >
+				<img src="../static/img/fp333605b.png" style="width: 27px;" onmouseover="showTooltip(1);" 
+         onmouseout="hideTooltip(1);" />
+         	<div id="tooltip1" style='display:none;border:1px solid gray;background-color:#EFEFEF;position:absolute;width: 100px;' >        
+         	</div></div>
+				           
+         </div> 
+         <div class="col-sm-6"> 
+          <div class="col-sm-4"></div> 
+          <div class="col-sm-4">
+           数量
+          </div> 
+          <div class="col-sm-4">
+           占比
+          </div> 
+          
+          
+          <br />
+          <br />
+          <div class="col-sm-4">
+          右手小指
+         
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_1">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_1">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           右手无名指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_2">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_2">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           右手中指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_3">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_3">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           右手食指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_4">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_4">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           右手拇指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_5">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_5">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           左手拇指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_6">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_6">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           左手食指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_7">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_7">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           左手中指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_8">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_8">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           左手无名指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_9">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_9">0%</span>
+          </div> 
+          <br />
+          <br />
+          <div class="col-sm-4">
+           左手小指
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_num_10">0</span>
+          </div> 
+          <div class="col-sm-4">
+           <span id="fp_reg_rg_10">0%</span>
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script src="${ctxPath}/static/modular/count/fp_reg_pr.js"></script>
+  
+  <script>
+	jQuery(document)
+			.ready(
+					function() {
+					//总数据
+					get_fp_reg_pr();
+							});
+</script>
+
+  @} 
