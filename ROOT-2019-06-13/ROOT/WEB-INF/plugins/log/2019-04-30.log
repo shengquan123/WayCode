@@ -1,0 +1,15 @@
+Apr 30, 2019 1:20:01 PM com.hibegin.http.server.SimpleWebServer create
+INFO: SimpleWebServer listening on port -> 26052
+Apr 30, 2019 1:20:01 PM com.hibegin.http.server.SimpleWebServer listener
+INFO: SimpleWebServer is run version -> 0.2
+Apr 30, 2019 4:07:56 PM com.hibegin.http.server.SimpleWebServer listener
+SEVERE: 
+java.nio.channels.ClosedSelectorException
+	at sun.nio.ch.SelectorImpl.selectedKeys(SelectorImpl.java:74)
+	at com.hibegin.http.server.SimpleWebServer.listener(SimpleWebServer.java:114)
+	at com.hibegin.http.server.WebServerBuilder$1.run(WebServerBuilder.java:74)
+
+Apr 30, 2019 4:14:51 PM com.hibegin.http.server.SimpleWebServer create
+INFO: SimpleWebServer listening on port -> 29093
+Apr 30, 2019 4:14:51 PM com.hibegin.http.server.SimpleWebServer listener
+INFO: SimpleWebServer is run version -> 0.2

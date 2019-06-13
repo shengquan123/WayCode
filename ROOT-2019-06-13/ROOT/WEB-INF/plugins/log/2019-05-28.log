@@ -1,0 +1,12 @@
+May 28, 2019 5:52:53 PM com.hibegin.http.server.SimpleWebServer create
+INFO: SimpleWebServer listening on port -> 20458
+May 28, 2019 5:52:53 PM com.hibegin.http.server.SimpleWebServer listener
+INFO: SimpleWebServer is run version -> 0.2
+May 28, 2019 5:54:59 PM com.hibegin.http.server.SimpleWebServer create
+INFO: SimpleWebServer listening on port -> 29206
+May 28, 2019 5:54:59 PM com.hibegin.http.server.SimpleWebServer listener
+INFO: SimpleWebServer is run version -> 0.2
+May 28, 2019 5:55:42 PM com.hibegin.http.server.SimpleWebServer create
+INFO: SimpleWebServer listening on port -> 22829
+May 28, 2019 5:55:42 PM com.hibegin.http.server.SimpleWebServer listener
+INFO: SimpleWebServer is run version -> 0.2

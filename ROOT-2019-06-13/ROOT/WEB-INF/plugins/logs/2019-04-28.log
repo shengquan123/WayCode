@@ -1,0 +1,12 @@
+Apr 28, 2019 5:32:36 PM com.fzb.zrlog.plugin.server.Application main
+INFO: args = [28676, 48676, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/db.properties, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/plugins/jars, 58676, /opt/apache-tomcat-8.5.24/webapps/ROOT, 1.x-dev]
+Apr 28, 2019 5:32:37 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+Apr 28, 2019 5:32:38 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: plugin listening on port -> 48676
+Apr 28, 2019 5:32:38 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: load jar files
+Apr 28, 2019 5:32:38 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+Apr 28, 2019 5:32:38 PM com.fzb.common.dao.impl.DAO update
+FINER: update website set  value=? where 1=1 and name=?

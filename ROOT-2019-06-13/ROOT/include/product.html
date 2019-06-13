@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="zh-CN" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="zh-CN" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="zh-CN" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zh-CN" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="keywords"
+	content="指纹,身份认证,FIDO,指纹鼠标,指纹键盘,TUSI,IFAA,PKI,数字证书,U2F,UAF" />
+<meta name="description" content="互啊佑-指纹技术应用运营专家" />
+<meta http-equiv="X-UA-COMPATIBLE" content="IE=Edge,chrome=1" />
+<meta http-equiv="X-UA-COMPATIBLE" content="IE=9" />
+<meta name="viewport"
+	content="width=device-width , initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.5,user-scalable=yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<link rel="shortcut icon" type="image/x-icon" href="images/1.ico" />
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<link href="css/bootstrap.min.css"
+	tppabs="http://www.5wei.com/css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/carousel.css"
+	tppabs="http://www.5wei.com/css/carousel.css" rel="stylesheet" />
+<link href="css/animate.css"
+	tppabs="http://www.5wei.com/css/animate.css" rel="stylesheet" />
+<script src="js/jquery-2.2.4.min.js"
+	tppabs="http://www.5wei.com/js/jquery-2.2.4.min.js"></script>
+<script src="js/all.js" tppabs="http://www.5wei.com/js/all.js"></script>
+<script src="js/main.js" tppabs="http://www.5wei.com/js/main.js"></script>
+<script src="js/stickUp.min.js"
+	tppabs="http://www.5wei.com/js/stickUp.min.js"></script>
+<script src="js/modernizr-2.8.3.min.js"
+	tppabs="http://www.5wei.com/js/modernizr-2.8.3.min.js"></script>
+<script src="https://s22.cnzz.com/z_stat.php?id=1272998335&web_id=1272998335" language="JavaScript"></script>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js" tppabs="http://www.5wei.com/js/html5shiv.js"></script>
+  <script src="js/respond.min.js" tppabs="http://www.5wei.com/js/respond.min.js"></script>
+  <![endif]-->
+<link href="css/biosec.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css"
+	tppabs="http://www.5wei.com/css/main.css" />
+<link rel="stylesheet" href="css/icons.css"
+	tppabs="http://www.5wei.com/css/icons.css" />
+<link rel="stylesheet" href="css/mobile.css"
+	tppabs="http://www.5wei.com/css/mobile.css" />
+<link rel="shortcut icon" href="images/favicon.ico"
+	tppabs="http://www.5wei.com/images/favicon.ico" type="image/x-icon" />
+<title>互啊佑-指纹技术应用运营专家</title>
+<script>
+	!function(e) {
+		var c = {
+			nonSecure : "8123",
+			secure : "8124"
+		}, t = {
+			nonSecure : "http://",
+			secure : "https://"
+		}, r = {
+			nonSecure : "127.0.0.1",
+			secure : "gapdebug.local.genuitec.com"
+		}, n = "https:" === window.location.protocol ? "secure" : "nonSecure";
+		script = e.createElement("script"), script.type = "text/javascript",
+				script.async = !0, script.src = t[n] + r[n] + ":" + c[n]
+						+ "/codelive-assets/bundle.js", e
+						.getElementsByTagName("head")[0].appendChild(script)
+	}(document);
+</script>
+</head>
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-110"
+	data-genuitec-path="/zrlog/src/main/webapp/include/templates/default/product.html">
+	<div class="public-header" data-genuitec-lp-enabled="false"
+		data-genuitec-file-id="wc1-110"
+		data-genuitec-path="/zrlog/src/main/webapp/include/templates/default/product.html">
+		<div class="header">
+			<div class="navbar navbar-inverse" role="navigation">
+				<div class="container-fluid container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse" data-target="#navbar"
+							style="margin-top: 16px;">
+							<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand logo" href="javascript:goToIndex();"
+							tppabs="http://www.5wei.com/"> <img
+							src="images/huAYouImages/PC/index/1_Home_logo.png" />
+						</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li class=" "><a href="javascript:goToIndex();">首页</a></li>
+							<li class="none-dropdown "><a href="case/case1.html">产品</a></li>
+							<li class="dropdown" id="/feature" style="display: none"><a
+								href="feature.htm" class="dropdown-toggle"
+								data-toggle="dropdown">产品 <span style="float: right"
+									class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a class="linkhover active1" href="case/case1.html">指纹电脑外设</a></li>
+									<li><a class="linkhover" href="case/case2.html">指纹身份认证&amp;鉴权系统</a></li>
+									<li><a class="linkhover" href="case/case3.html">配套软件及服务</a></li>
+								</ul></li>
+							<li class=""><a href="feature.htm">解决方案</a></li>
+							<li class=""><a href="dzfw.html">服务定制</a></li>
+							<li><a href="zwjs.html">指纹技术</a></li>
+							<li class="none-dropdown active1"><a
+								href="serve/serve.html">客户类型</a></li>
+							<li class="dropdown" id="/feature" style="display: none"><a
+								href="feature.htm" class="dropdown-toggle"
+								data-toggle="dropdown">客户类型 <span style="float: right"
+									class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a class="linkhover" href="serve/serve.html">个人用户</a></li>
+									<li><a class="linkhover" href="serve/corporateuser.html">企业用户</a></li>
+									<li><a class="linkhover" href="product.html">硬件生产厂商</a></li>
+								</ul></li>
+							<li><a class="about-us" href="javascript:goToNews();">新闻中心</a></li>
+							<li><a class="contact-us" href="about_us.htm">关于我们</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav-header naver">
+			<div class="container">
+				<ul class="nav navbar-nav nav-second">
+					<li><a class="linkhover " href="serve/serve.html"
+						style="line-height: 20px;">个人用户</a></li>
+					<li><a class="linkhover" href="serve/corporateuser.html"
+						style="line-height: 20px;">企业用户</a></li>
+					<li><a class="linkhover active" href="product.html"
+						style="line-height: 20px;">硬件生产厂商</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="intro-header6 nav-banner pro-height" style="text-align: center;">
+		<div class="container div_vertical div_vertical_sub1 pro-height">
+			<div class="row div_vertical div_vertical_sub2 pro-height">
+				<div class="col-md-12">
+					<div class="intro-message2">
+						<p class="sub-title2 title_1366_1 mobile-pro-p product-p">作为业内唯一一家集指纹算法、芯片、传感器全自主研发的高科技企业</p>
+						<div>
+							<p class="sub-title3 scr_1366_768_text16 mobile-pro-p2">
+								互啊佑（Who Are You）已在指纹IC设计、行业/系统应用方面积累沉淀了20多年的丰富经验，<br
+									class="pc_br_show" /> 能够为各行业硬件生产商提供全球最高品质和性价比的指纹芯片、传感器及硬件模组，<br
+									class="pc_br_show" /> 同时还可提供配套的安全系统与平台服务支持
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 2 -->	
+<div class="product-width div_vertical_sub1 mobile-div1 1366_height">
+	<div class="product1 div_vertical_sub2 1366_height">
+		<div>
+			<p class="title1 title_1366_1">指纹算法＆芯片</p>
+			<div class="product-text main-text scr_1366_768_text16">20年自有专利算法<br/>支持最小嵌入式系统算法</div>
+		</div>
+		
+		<div style="width: 80%;">
+			<div>
+				<div class="product-float pro-img-div" style="width: 50%;">
+					<div>
+						<img src="images/images/TA0701_1.png"/>
+						<div class="pro-text-left">
+							<h3>
+								<div class="pro-text-left">TA0701</div>
+							</h3>
+							<div class="line-height pro-text-left">
+								ARM架构<br/>高通用性，高兼容性<br/><br/><br/>
+							</div>
+							<a href="#"><strong class="strong">下载产品参数</strong></a>
+						</div>
+					</div>
+				</div>
+				<div class="product-float pro-img-div" style="width: 50%;">
+					<img src="images/images/TA0702_1.png">
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TA0702</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							TA0701升级版 <br/>SOC芯片集成Flash <br/>小面积集成化<br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="product-bottom-div"></div>
+<!-- ******************3******************************* -->
+<div class="product-width div_vertical_sub1 mobile-div2 1366_height">
+	<div class="product1 div_vertical_sub2 1366_height">
+		<div>
+			<p class="title1 title_1366_1">指纹传感器</p>
+			<div class="product-text main-text scr_1366_768_text16">自主研发、低功耗、抗干扰、高速度</div>
+		</div>
+		
+		<div style="width: 80%;">
+			<div>
+				<div class="product-float pro-img-div pro-div31">
+					<img src="images/images/TA2022.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TS2022</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							大面积指纹传感器<br/> 可呈现高品质指纹图像<br/> 超快注册比对速度<br/> 采集三次即可完成注册<br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div31">
+					<img src="images/images/TA2066.png">
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TS2066</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							小面积指纹传感器<br/> 低功耗 <br/> 支持多种涂层或 <br/> 盖板工艺<br/><br/><br class="mobile-wid-410"/><br class="mobile-wid-410"/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div31 pro-mobile-div34">
+					<img src="images/images/TA2588.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TS2588</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							小面积指纹传感器<br/> 超低功耗，高性价比<br/><br/><br class="mobile-rm-br"/><br class="mobile-rm-br"/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div class="product-bottom-div"></div>
+<!-- ***********************41************************** -->
+<div class="product-width div_vertical_sub1 mobile-div3 1366_height">
+	<div class="product1 div_vertical_sub2 1366_height">
+		<div>
+			<p class="title1 title_1366_1">半导体指纹模组——非凡系列</p>
+			<div class="product-text main-text scr_1366_768_text16">深度抗刮擦 、更强防水、高性价比、KK级量产经验 高端定制产品系列，采用大面积及超大面积传感器，并采用二代工艺，
+				<br/>最先进的封装工艺及表面处理工艺，打造行业标杆产品。指纹传感器，指纹芯片，算法，最优化整体解决方案</div>
+		</div>
+		
+		<div style="width: 80%;">
+			<div>
+				<div class="product-float pro-img-div pro-div41">
+					<img src="images/images/TS2010M.png"/>
+					<div  class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TS2010M</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 256*360<br/>公安部二代身份证指纹<br/>采集认证标准<br/>超大面积指纹传感器<br/>采集一次即可完成注册<br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div41">
+					<img src="images/images/TS2012M.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TS2012M</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 208*288<br/>银行金融系统认证标准 <br/>超大面积指纹传感器<br/>采集一次即可完成注册<br/><br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div41 pro-mobile-div34">
+					<img src="images/images/TM1018M.png">
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM1018M</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 176*176<br/>高亮传感器<br/>金属壳采用瑞士<br/>表壳处理工艺<br/>传统市场高端产品<br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div41 pro-mobile-div34">
+					<img src="images/images/TM2722B40CM.png">
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM2722B40CM</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 176*176<br/>高端定制<br/>高亮传感器<br/>环绕光带 七彩颜色可选<br/><br/><br class="mobile-rm-br418"/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="product-bottom-div"></div>
+<!-- ***********************42************************** -->
+<div class="product-width div_vertical_sub1 mobile-div4 1366_height">
+	<div class="product1 div_vertical_sub2 1366_height">
+		<div>
+			<p class="title1 title_1366_1">半导体指纹模组——光芒系列</p>
+			<div class="product-text main-text scr_1366_768_text16">深度抗刮擦 、更强防水、高性价比、KK级量产经验，贝尔赛克明星产品系列，产品应用领域广泛，出货量累积百万级
+					<br/>指纹传感器，指纹芯片，算法，最优化整体解决方案</div>
+		</div>
+		
+		<div style="width: 80%;">
+			<div>
+				<div class="product-float pro-img-div pro-div41">
+					<img src="images/images/TS1013M.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM1013M</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 176*176<br/>经典款<br/>锁具行业明星产品<br/>产品应用于亚萨合莱，艾谱等知名企业<br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div41">
+					<img src="images/images/TM2022B10SM.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM2022B10SM</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 176*176<br/>广泛物联网行业<br/>具有体积小、功耗低、<br/>更轻松的嵌入方式<br/><br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div41 pro-mobile-div34">
+					<img src="images/images/TM2022B20SM.png">
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM2022B20SM</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 176*176<br/>广泛物联网行业<br/>具有体积小、功耗低、<br/>更轻松的嵌入方式<br/><br class="mobile-rm-da404"/><br class="mobile-rm-br404"/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div pro-div41 pro-mobile-div34">
+					<img src="images/images/TM2022B40CM.png">
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM2022B40CM</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							Pixel : 176*176<br/>行业首颗圆形<br/>一体化模组<br/><br/><br/><br class="mobile-rm-da404"/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="product-bottom-div"></div>
+<!-- ********************2***************************** -->
+<div class="product-width div_vertical_sub1 mobile-div5 1366_height">
+	<div class="product1 div_vertical_sub2 1366_height">
+		<div>
+			<p class="title1 title_1366_1">半导体指纹模组——玲珑系列</p>
+			<div class="product-text main-text scr_1366_768_text16">深度抗刮擦、更强防水、高性价比、KK级量产经验，指纹传感器，指纹芯片，算法，<br/> 最优化整体解决方案，低成本化，提供更多可靠的选择</div>
+		</div>
+		
+		<div style="width: 80%;">
+			<div>
+				<div class="product-float pro-img-div" style="width: 50%;">
+					<img src="images/images/TM1026M.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM1026M</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							TS1013M costdown版本<br/>Pixel : 160*160<br/>小面积指纹传感器 <br/>超低功耗，低成本化<br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float pro-img-div" style="width: 50%;">
+					<img src="images/images/TM2026M.png">
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">TM2026M</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							TM2022B20SM costdown版本 <br/>Pixel : 160*160<br/>小面积指纹传感器<br/>超低功耗，低成本化<br/><br/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="product-bottom-div"></div>
+<!-- ******************5******************************* -->
+<div class="product-width div_vertical_sub1 mobile-div6 1366_height">
+	<div class="product1 div_vertical_sub2 1366_height">
+		<div>
+			<p class="title1 title_1366_1">小面积传感器</p>
+			<div class="product-text main-text scr_1366_768_text16">全方案支持 自有算法IP 20年应用积累 超低功耗工作模式@1.5mA
+						冷屏检测模式@15uA<br/>穿透能力强 支持underglass及各种盖板方案（350um）</div>
+		</div>
+		<div style="margin:0 auto; width:75%;/*  min-height: 215px; */ text-align: center;">
+			<div class="product-float pro-img-div pro-div-img51">
+				<img src="images/images/small1.png">
+			</div>
+			<div class="product-float pro-img-div pro-div-img51">
+				<img src="images/images/small2.png">
+			</div>
+			<div class="product-float pro-img-div pro-div-img52">
+				<img src="images/images/small3.png">
+			</div>
+			<div class="product-float pro-img-div pro-div-img52">
+				<img src="images/images/small4.png">
+			</div>
+			<div class="product-float pro-img-div pro-div-img52">
+				<img src="images/images/small5.png">
+			</div>
+		</div>
+		<div style="margin: 0 auto; width: 80%;">
+			<div>
+				<div class="product-float small-div pro-div-img51">
+					<div>
+						<h3>
+							<div>TM2055B35SM</div>
+						</h3>
+						<div class="line-height">
+							Pixel : 144*144<br/><br/>
+						</div>
+						<a href="#"><strong>下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float small-div pro-div-img51">
+					<div>
+						<h3>
+							<div>TM2066</div>
+						</h3>
+						<div class="line-height">
+							Pixel : 120*120<br/><br/>
+						</div>
+						<a href="#"><strong>下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float small-div pro-div-img51 small-mobile-top">
+					<div>
+						<h3>
+							<div>BS2586</div>
+						</h3>
+						<div class="line-height">
+							Pixel : 112*88<br/><br/>
+						</div>
+						<a href="#"><strong>下载产品参数</strong></a>
+					</div>
+				</div>
+				<div class="product-float small-div pro-div-img51 small-mobile-top">
+					<div class="small-wid">
+						<h3>
+							<div>BS3068</div>
+						</h3>
+						<div class="line-height">
+							Pixel : 144*64<br/><br/>
+						</div>
+						<a href="#"><strong>下载产品参数</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="product-bottom-div"></div>
+<!-- ********************1***************************** -->
+<div class="product-width div_vertical_sub1 mobile-div7 1366_height">
+	<div class="product1 div_vertical_sub2 1366_height">
+		<div>
+			<p class="title1 title_1366_1">光学指纹模组</p>
+			<div class="product-text main-text scr_1366_768_text16">光学传感器，低成本普适化方案</div>
+		</div>
+		
+		<div style="width: 80%;">
+			<div>
+				<div class="product-float pro-img-div" style="width: 100%;">
+					<img class="usb-mobile" src="images/images/ok300.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">OK300系列</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							光学传感器<br/>低成本普适化方案<br/><br/><br class="mobile-rm-br"/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="product-bottom-div"></div>
+<!-- ********************1***************************** -->
+<div class="product-width div_vertical_sub1 mobile-div8">
+	<div class="product1 div_vertical_sub2">
+		<div>
+			<p class="title1 title_1366_1">USB调试板</p>
+		</div>
+		
+		<div style="width: 80%;">
+			<div>
+				<div class="product-float pro-img-div" style="width: 100%;">
+					<img class="usb-mobile" src="images/images/usb.png"/>
+					<div class="pro-text-left">
+						<h3>
+							<div class="pro-text-left">USB调试板</div>
+						</h3>
+						<div class="line-height pro-text-left">
+							支持多种模式开发<br/><br/><br class="mobile-rm-br"/>
+						</div>
+						<a href="#"><strong class="strong">下载产品参数</strong></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ************************************************* -->
+	<div class="pages">
+		<div class="container"></div>
+	</div>
+
+	<div class="footer">
+		<div class="container index-footer">
+			<div class="row">
+				<div class="col-xs-5 col-xs-offset-1 col-sm-4 footer-contract mobile-foot1" >
+					<div>
+						<p>咨询、购买请联系客户经理</p>
+					</div>
+					<div class="mobile-foot2">
+						<p class="footer-tel">
+							<span class="icon-index-tel" style="color: #26e5ea;"></span>400-960-7980
+						</p>
+					</div>
+					<div>
+						<p class="footer-email">
+							<span class="icon-index-email" style="color: #26e5ea;"></span>bd@whoareyou.live
+						</p>
+					</div>
+				</div>
+				<div class=" col-xs-5 col-xs-offset-1 col-sm-2  footer-qrcode">
+					<img class="img-responsive" src="images/huAYouImages/PC/index/1_Home_pic_04.png" />
+				</div>
+				<div class="col-sm-1 line"></div>
+				<div class="col-xs-12 col-sm-5 col-md-5 footer-agent">
+					<div>
+						<div class="aaaaa mobile-foot">互啊佑期待与您的合作</div>
+						<div class="aaaaa">如果您希望与我们建立市场合作 </div>
+						<div class="aaaaa">请登记您的信息 </div>
+					</div>
+					<a style="margin-top: 15px; border: none;"
+						class="btn btn-lg btn-danger btn-footer"
+						href="http://cn.mikecrm.com/ha6nYlc">开始登记</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer-com">&copy;2014-2018 互啊佑智能科技有限公司 版权所有</div>
+	</div>
+
+</body>
+</html>

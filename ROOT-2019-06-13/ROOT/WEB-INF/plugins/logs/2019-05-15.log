@@ -1,0 +1,36 @@
+May 15, 2019 8:12:33 PM com.fzb.zrlog.plugin.server.Application main
+INFO: args = [20189, 40189, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/db.properties, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/plugins/jars, 50189, /opt/apache-tomcat-8.5.24/webapps/ROOT, 1.x-dev]
+May 15, 2019 8:12:35 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+May 15, 2019 8:12:35 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: plugin listening on port -> 40189
+May 15, 2019 8:12:35 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: load jar files
+May 15, 2019 8:12:36 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+May 15, 2019 8:12:36 PM com.fzb.common.dao.impl.DAO update
+FINER: update website set  value=? where 1=1 and name=?
+May 15, 2019 8:16:53 PM com.fzb.zrlog.plugin.server.Application main
+INFO: args = [27737, 47737, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/db.properties, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/plugins/jars, 57737, /opt/apache-tomcat-8.5.24/webapps/ROOT, 1.x-dev]
+May 15, 2019 8:16:55 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+May 15, 2019 8:16:55 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: plugin listening on port -> 47737
+May 15, 2019 8:16:55 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: load jar files
+May 15, 2019 8:16:56 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+May 15, 2019 8:16:56 PM com.fzb.common.dao.impl.DAO update
+FINER: update website set  value=? where 1=1 and name=?
+May 15, 2019 8:22:02 PM com.fzb.zrlog.plugin.server.Application main
+INFO: args = [28647, 48647, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/db.properties, /opt/apache-tomcat-8.5.24/webapps/ROOT/WEB-INF/plugins/jars, 58647, /opt/apache-tomcat-8.5.24/webapps/ROOT, 1.x-dev]
+May 15, 2019 8:22:03 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+May 15, 2019 8:22:03 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: plugin listening on port -> 48647
+May 15, 2019 8:22:03 PM com.fzb.zrlog.plugin.server.impl.NioServer create
+INFO: load jar files
+May 15, 2019 8:22:04 PM com.fzb.common.dao.impl.DAO queryFirst
+FINER: select value from website where 1=1 and name=?
+May 15, 2019 8:22:04 PM com.fzb.common.dao.impl.DAO update
+FINER: update website set  value=? where 1=1 and name=?
